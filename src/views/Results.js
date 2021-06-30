@@ -11,6 +11,7 @@ import useMounted from "hooks/useMounted";
 import Suggestions from "components/misc/Suggestions";
 import Result from "./results/Result";
 import NotFound from "./results/NotFound";
+import { fetchLastCommuns } from "wikiAPI.js";
 
 const Wrapper = styled.div`
   min-height: 22em;
@@ -29,15 +30,19 @@ const StyledLink = styled(Link)`
 `;
 export default function Results(props) {
   const { search } = useContext(SearchContext);
-  const products = ["Traceur", "Trottinettes", "Vélolibre"];
+  const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   const mounted = useMounted();
 
   const [fuse, setFuse] = useState(null);
+
+  console.log(products);
   useEffect(() => {
+    if (!products.length) return fetchLastCommuns(setProducts);
     setFuse(
       new Fuse(products, {
+        keys: ["title"],
         threshold: 0.3,
         minMatchCharLength: 3,
       })
@@ -52,14 +57,23 @@ export default function Results(props) {
 
   return (
     <Wrapper>
-      {filteredProducts.length ? (
+      {!search.length ? (
+        products.map((product, index) => (
+          <Result
+            key={product}
+            index={index}
+            product={product}
+            iframe={props.iframe}
+          />
+        ))
+      ) : filteredProducts.length ? (
         filteredProducts.map(
           (product, index) =>
             (!props.iframe || index === 0) && (
               <Result
                 key={product}
                 index={index}
-                product={product}
+                product={product.item}
                 iframe={props.iframe}
               />
             )
@@ -68,11 +82,6 @@ export default function Results(props) {
         <NotFound iframe={props.iframe} />
       ) : (
         <Suggestions length={5} iframe={props.iframe} />
-      )}
-      {!props.iframe && (
-        <StyledLink to={`/months/${currentMonth}`} mounted={mounted ? 1 : 0}>
-          Voir tous les produits du mois
-        </StyledLink>
       )}
     </Wrapper>
   );

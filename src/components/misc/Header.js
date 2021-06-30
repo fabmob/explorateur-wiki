@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import React, { useContext } from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-import UXContext from 'utils/UXContext'
+import UXContext from "utils/UXContext";
 
 const Wrapper = styled.div`
   position: relative;
@@ -16,14 +16,14 @@ const Wrapper = styled.div`
     padding: 2rem 3vw;
     font-size: 12vw;
   }
-`
+`;
 const Title = styled.h1`
   margin: 0;
   font-size: inherit;
   line-height: 1.1;
 
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -32,28 +32,28 @@ const Title = styled.h1`
     background-color: ${(props) => props.theme.colors.background};
     filter: blur(20px);
   }
-`
+`;
 const StyledLink = styled(Link)`
   position: relative;
   display: flex;
   flex-direction: column;
   color: ${(props) => props.theme.colors.text};
   text-decoration: none;
-`
+`;
 const NoLink = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
   color: ${(props) => props.theme.colors.text};
   text-decoration: none;
-`
+`;
 const Top = styled.span`
   position: relative;
   align-self: flex-start;
   display: block;
 
   &:before {
-    content: '${(props) => props.text}';
+    content: "${(props) => props.text}";
     position: absolute;
     top: 0.3rem;
     left: -0.5rem;
@@ -64,10 +64,10 @@ const Top = styled.span`
   span {
     position: relative;
   }
-`
+`;
 const Bottom = styled(Top)`
   align-self: flex-end;
-`
+`;
 const ScrollToInformations = styled.a`
   position: relative;
   display: block;
@@ -80,9 +80,9 @@ const ScrollToInformations = styled.a`
   ${(props) => props.theme.mq.small} {
     font-size: 0.875rem;
   }
-`
+`;
 export default function Header(props) {
-  const { displayTitle } = useContext(UXContext)
+  const { displayTitle } = useContext(UXContext);
 
   return (
     <Wrapper>
@@ -91,39 +91,34 @@ export default function Header(props) {
           <Title>
             {props.iframe ? (
               <NoLink>
-                <Top text={'Est-ce bien'}>
-                  <span>Est-ce bien</span>
+                <Top text={"Explorateur"}>
+                  <span>Explorateur</span>
                 </Top>
-                <Bottom text={'la saison ?'}>
-                  <span>la saison ?</span>
+                <Bottom text={" de wiki"}>
+                  <span>de wiki</span>
                 </Bottom>
               </NoLink>
             ) : (
-              <StyledLink to={'/'}>
-                <Top text={'Est-ce bien'}>
-                  <span>Est-ce bien</span>
-                </Top>
-                <Bottom text={'la saison ?'}>
-                  <span>la saison ?</span>
-                </Bottom>
+              <StyledLink to={"/"}>
+                <h2>Explorateur de wiki</h2>
               </StyledLink>
             )}
           </Title>
           <ScrollToInformations
             href={
               props.iframe
-                ? 'https://mesfruitsetlegumesdesaison.fr#informations'
-                : '#informations'
+                ? "https://mesfruitsetlegumesdesaison.fr#informations"
+                : "#informations"
             }
-            target={props.iframe ? '_blank' : '_self'}
-            rel='noopener noreferrer'
+            target={props.iframe ? "_blank" : "_self"}
+            rel="noopener noreferrer"
           >
             Pourquoi choisir des produits de saison ?
           </ScrollToInformations>
         </>
       ) : (
-        ''
+        ""
       )}
     </Wrapper>
-  )
+  );
 }

@@ -47,11 +47,12 @@ const Text = styled.p`
   text-align: center;
 `;
 export default function Result(props) {
+  console.log(props);
   return (
     <Tile>
       <Title>
-        <span>{props.product.item}</span>
-        <Emoji>🚲</Emoji>
+        <span>{props.product.title}</span>
+        <Emoji>🔎</Emoji>
       </Title>
     </Tile>
   );
