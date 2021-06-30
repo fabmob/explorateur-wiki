@@ -1,8 +1,8 @@
-# Mes Fruits et Légumes de Saison
+# Explorateur de wiki
 
-Application web permettant d'afficher les fruits et légumes de saison en reprenant les data ADEME et Agribalyse.
+Application web permettant d'afficher les éléments d'un wiki MediaWiki. 
 
-https://mesfruitsetlegumesdesaison.fr
+Intégrable en un clic sous forme d'iframe à tout site Web.
 
 ## Développement
 
