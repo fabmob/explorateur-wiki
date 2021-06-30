@@ -1,26 +1,26 @@
-import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { QueryParamProvider } from 'use-query-params'
-import { QueryClient, QueryClientProvider } from 'react-query'
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { QueryParamProvider } from "use-query-params";
+import { QueryClient, QueryClientProvider } from "react-query";
 
-import { GlobalStyle } from 'utils/styles'
-import StyleProvider from 'components/providers/StyleProvider'
-import ModalProvider from 'components/providers/ModalProvider'
-import UXProvider from 'components/providers/UXProvider'
-import ProductProvider from 'components/providers/ProductProvider'
-import SearchProvider from 'components/providers/SearchProvider'
+import { GlobalStyle } from "utils/styles";
+import StyleProvider from "components/providers/StyleProvider";
+import ModalProvider from "components/providers/ModalProvider";
+import UXProvider from "components/providers/UXProvider";
+import ProductProvider from "components/providers/ProductProvider";
+import SearchProvider from "components/providers/SearchProvider";
 
-import Web from 'components/layout/Web'
-import Iframe from 'components/layout/Iframe'
-import SearchInput from 'components/misc/SearchInput'
-import CO2EModal from 'components/modals/CO2EModal'
-import PEFModal from 'components/modals/PEFModal'
-import LocalModal from 'components/modals/LocalModal'
-import InstallInstructionsModal from 'components/modals/InstallInstructionsModal'
-import Months from 'views/Months'
-import Results from 'views/Results'
+import Web from "components/layout/Web";
+import Iframe from "components/layout/Iframe";
+import SearchInput from "components/misc/SearchInput";
+import CO2EModal from "components/modals/CO2EModal";
+import PEFModal from "components/modals/PEFModal";
+import LocalModal from "components/modals/LocalModal";
+import InstallInstructionsModal from "components/modals/InstallInstructionsModal";
+import Months from "views/Months";
+import Results from "views/Results";
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
 function App() {
   return (
@@ -34,7 +34,7 @@ function App() {
                   <SearchProvider>
                     <GlobalStyle />
                     <Switch>
-                      <Route path='/embed'>
+                      <Route path="/embed">
                         <Iframe>
                           <SearchInput iframe />
                           <Results iframe />
@@ -44,10 +44,10 @@ function App() {
                         <Web>
                           <SearchInput />
                           <Switch>
-                            <Route path='/months/:month'>
+                            <Route path="/months/:month">
                               <Months />
                             </Route>
-                            <Route path='/'>
+                            <Route path="/">
                               <Results />
                             </Route>
                           </Switch>
@@ -66,7 +66,7 @@ function App() {
         </QueryClientProvider>
       </QueryParamProvider>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;

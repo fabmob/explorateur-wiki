@@ -1,20 +1,20 @@
-import React, { useState, useEffect, useContext } from 'react'
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-import Fuse from '../../node_modules/fuse.js/dist/fuse.basic.esm.min.js'
+import React, { useState, useEffect, useContext } from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import Fuse from "../../node_modules/fuse.js/dist/fuse.basic.esm.min.js";
 
-import { currentMonth } from 'utils/months'
-import SearchContext from 'utils/SearchContext'
-import ProductContext from 'utils/ProductContext'
-import useMounted from 'hooks/useMounted'
+import { currentMonth } from "utils/months";
+import SearchContext from "utils/SearchContext";
+import ProductContext from "utils/ProductContext";
+import useMounted from "hooks/useMounted";
 
-import Suggestions from 'components/misc/Suggestions'
-import Result from './results/Result'
-import NotFound from './results/NotFound'
+import Suggestions from "components/misc/Suggestions";
+import Result from "./results/Result";
+import NotFound from "./results/NotFound";
 
 const Wrapper = styled.div`
   min-height: 22em;
-`
+`;
 const StyledLink = styled(Link)`
   position: relative;
   display: block;
@@ -26,30 +26,29 @@ const StyledLink = styled(Link)`
   ${(props) => props.theme.mq.small} {
     font-size: 1rem;
   }
-`
+`;
 export default function Results(props) {
-  const { search } = useContext(SearchContext)
-  const { products } = useContext(ProductContext)
-  const [filteredProducts, setFilteredProducts] = useState([])
+  const { search } = useContext(SearchContext);
+  const products = ["Traceur", "Trottinettes", "Vélolibre"];
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
-  const mounted = useMounted()
+  const mounted = useMounted();
 
-  const [fuse, setFuse] = useState(null)
+  const [fuse, setFuse] = useState(null);
   useEffect(() => {
     setFuse(
       new Fuse(products, {
-        keys: ['label.fr'],
         threshold: 0.3,
         minMatchCharLength: 3,
       })
-    )
-  }, [products])
+    );
+  }, [products]);
 
   useEffect(() => {
     if (fuse) {
-      setFilteredProducts(fuse.search(search))
+      setFilteredProducts(fuse.search(search));
     }
-  }, [search, products, fuse])
+  }, [search, products, fuse]);
 
   return (
     <Wrapper>
@@ -58,9 +57,9 @@ export default function Results(props) {
           (product, index) =>
             (!props.iframe || index === 0) && (
               <Result
-                key={product.item.label.fr}
+                key={product}
                 index={index}
-                product={product.item}
+                product={product}
                 iframe={props.iframe}
               />
             )
@@ -76,5 +75,5 @@ export default function Results(props) {
         </StyledLink>
       )}
     </Wrapper>
-  )
+  );
 }

@@ -1,17 +1,17 @@
-import React, { Suspense } from 'react'
-import styled from 'styled-components'
+import React, { Suspense } from "react";
+import styled from "styled-components";
 
-import useWindowSize from 'hooks/useWindowSize'
+import useWindowSize from "hooks/useWindowSize";
 
-import ThemeToggle from 'components/base/ThemeToggle'
-import InstallButton from 'components/base/InstallButton'
-import Background from 'components/misc/Background'
-import Header from 'components/misc/Header'
-import Learning from 'components/misc/Learning'
-import ShareWrapper from 'components/wrappers/ShareWrapper'
-import EmbedWrapper from 'components/wrappers/EmbedWrapper'
-import ContactWrapper from 'components/wrappers/ContactWrapper'
-import FooterWrapper from 'components/wrappers/FooterWrapper'
+import ThemeToggle from "components/base/ThemeToggle";
+import InstallButton from "components/base/InstallButton";
+import Background from "components/misc/Background";
+import Header from "components/misc/Header";
+import Learning from "components/misc/Learning";
+import ShareWrapper from "components/wrappers/ShareWrapper";
+import EmbedWrapper from "components/wrappers/EmbedWrapper";
+import ContactWrapper from "components/wrappers/ContactWrapper";
+import FooterWrapper from "components/wrappers/FooterWrapper";
 
 const Wrapper = styled.div`
   display: flex;
@@ -21,12 +21,12 @@ const Wrapper = styled.div`
   ${(props) => props.theme.mq.medium} {
     flex-direction: column-reverse;
   }
-`
+`;
 const Content = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-`
+`;
 const FullScreen = styled.div`
   position: relative;
   flex: 1;
@@ -40,13 +40,13 @@ const FullScreen = styled.div`
   ${(props) => props.theme.mq.small} {
     width: 100%;
   }
-`
+`;
 export default function Web(props) {
-  const { height } = useWindowSize()
+  const { height } = useWindowSize();
 
   return (
     <Wrapper>
-      <Suspense fallback={''}>
+      <Suspense fallback={""}>
         <Background />
       </Suspense>
       <ThemeToggle />
@@ -55,7 +55,6 @@ export default function Web(props) {
           <Header />
           {props.children}
         </FullScreen>
-        <Learning />
         <FooterWrapper />
       </Content>
       <EmbedWrapper />
@@ -63,5 +62,5 @@ export default function Web(props) {
       <ContactWrapper />
       <InstallButton />
     </Wrapper>
-  )
+  );
 }
