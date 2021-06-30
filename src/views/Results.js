@@ -1,17 +1,13 @@
-import React, { useState, useEffect, useContext } from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import Fuse from "../../node_modules/fuse.js/dist/fuse.basic.esm.min.js";
-
-import { currentMonth } from "utils/months";
-import SearchContext from "utils/SearchContext";
-import ProductContext from "utils/ProductContext";
-import useMounted from "hooks/useMounted";
-
 import Suggestions from "components/misc/Suggestions";
-import Result from "./results/Result";
-import NotFound from "./results/NotFound";
+import useMounted from "hooks/useMounted";
+import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import SearchContext from "utils/SearchContext";
 import { fetchLastCommuns } from "wikiAPI.js";
+import Fuse from "../../node_modules/fuse.js/dist/fuse.basic.esm.min.js";
+import NotFound from "./results/NotFound";
+import Result from "./results/Result";
 
 const Wrapper = styled.div`
   min-height: 22em;

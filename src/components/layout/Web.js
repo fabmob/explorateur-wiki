@@ -1,17 +1,14 @@
-import React, { Suspense } from "react";
-import styled from "styled-components";
-
-import useWindowSize from "hooks/useWindowSize";
-
-import ThemeToggle from "components/base/ThemeToggle";
 import InstallButton from "components/base/InstallButton";
+import ThemeToggle from "components/base/ThemeToggle";
 import Background from "components/misc/Background";
 import Header from "components/misc/Header";
-import Learning from "components/misc/Learning";
-import ShareWrapper from "components/wrappers/ShareWrapper";
-import EmbedWrapper from "components/wrappers/EmbedWrapper";
 import ContactWrapper from "components/wrappers/ContactWrapper";
+import EmbedWrapper from "components/wrappers/EmbedWrapper";
 import FooterWrapper from "components/wrappers/FooterWrapper";
+import ShareWrapper from "components/wrappers/ShareWrapper";
+import useWindowSize from "hooks/useWindowSize";
+import React, { Suspense } from "react";
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
