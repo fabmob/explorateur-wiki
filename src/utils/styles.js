@@ -1,15 +1,15 @@
-import { createGlobalStyle } from 'styled-components'
-import styledNormalize from 'styled-normalize'
+import { createGlobalStyle } from "styled-components";
+import styledNormalize from "styled-normalize";
 
 export const themes = {
   default: {
-    name: 'Défaut',
+    name: "Défaut",
     colors: {
-      main: '#ff4c82',
-      second: '#FFF5CB',
-      ter: '#ff4c82',
-      background: '#FFE57D',
-      text: '#2BAEAD',
+      main: "#ff4c82",
+      second: "#FFF5CB",
+      ter: "#ff4c82",
+      background: "#FFE57D",
+      text: "#2BAEAD",
     },
     fonts: {
       body: '"Work Sans", sans-serif',
@@ -25,14 +25,14 @@ export const themes = {
     },
   },
   classic: {
-    name: 'Classique',
+    name: "Classique",
     colors: {
-      main: '#EF0D50',
-      second: '#ffffff',
-      ter: '#32337B',
-      quad: '#ffffff',
-      background: '#ffffff',
-      text: '#32337B',
+      main: "#EF0D50",
+      second: "#ffffff",
+      ter: "#32337B",
+      quad: "#ffffff",
+      background: "#ffffff",
+      text: "#32337B",
     },
     fonts: {
       body: '"Work Sans", sans-serif',
@@ -48,14 +48,14 @@ export const themes = {
     },
   },
   night: {
-    name: 'Nuit',
+    name: "Nuit",
     colors: {
-      main: '#92F2D2',
-      second: '#1e1e1e',
-      ter: '#ffffff',
-      quad: '#1e1e1e',
-      background: '#1e1e1e',
-      text: '#ffffff',
+      main: "#92F2D2",
+      second: "#1e1e1e",
+      ter: "#ffffff",
+      quad: "#1e1e1e",
+      background: "#1e1e1e",
+      text: "#ffffff",
     },
     fonts: {
       body: '"Work Sans", sans-serif',
@@ -71,14 +71,14 @@ export const themes = {
     },
   },
   simple: {
-    name: 'Simple',
+    name: "Simple",
     colors: {
-      main: '#000091',
-      second: '#ffffff',
-      ter: '#1e1e1e',
-      quad: '#ffffff',
-      background: '#ffffff',
-      text: '#1e1e1e',
+      main: "#000091",
+      second: "#ffffff",
+      ter: "#1e1e1e",
+      quad: "#ffffff",
+      background: "#ffffff",
+      text: "#1e1e1e",
     },
     fonts: {
       body: '"Work Sans", sans-serif',
@@ -93,7 +93,7 @@ export const themes = {
       xlarge: `@media screen and (min-width: ${2000}px)`,
     },
   },
-}
+};
 
 export const GlobalStyle = createGlobalStyle`
   ${styledNormalize}
@@ -138,4 +138,4 @@ export const GlobalStyle = createGlobalStyle`
   option {
     color: #010101;
   }
-`
+`;
