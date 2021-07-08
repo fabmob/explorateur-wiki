@@ -1,7 +1,7 @@
 {
-  "short_name": "Fruits & Légumes",
-  "name": "Mes Fruits et Légumes de Saison",
-  "description": "Découvrez quels sont les fruits et légumes de saison pour consommer des produits frais et locaux toute l'année ! En plus c'est meilleur pour votre santé et pour l'environnement !",
+  "short_name": "Explorateur de wiki",
+  "name": "Explorateur de wiki",
+  "description": "Explorez le contenu d'un wiki via ce petit module",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -17,6 +17,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#2BAEAD",
-  "background_color": "#FFE57D"
+  "theme_color": "#8ad0ef",
+  "background_color": "#fcec26"
 }

@@ -1,7 +1,7 @@
-import React, { useContext } from 'react'
-import styled from 'styled-components'
+import React, { useContext } from "react";
+import styled from "styled-components";
 
-import SearchContext from 'utils/SearchContext'
+import SearchContext from "utils/SearchContext";
 
 const Wrapper = styled.div`
   position: relative;
@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   margin-bottom: 2em;
 
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0.5em;
     left: -0.5em;
@@ -17,7 +17,7 @@ const Wrapper = styled.div`
     height: 100%;
     background-color: ${(props) => props.theme.colors.second};
   }
-`
+`;
 const Input = styled.input`
   position: relative;
   width: 100%;
@@ -48,17 +48,17 @@ const Input = styled.input`
     width: 100%;
     font-size: 1.3em;
   }
-`
+`;
 export default function SearchInput(props) {
-  const { search, setSearch } = useContext(SearchContext)
+  const { search, setSearch } = useContext(SearchContext);
   return (
     <Wrapper>
       <Input
-        type='text'
+        type="text"
         value={search}
         onChange={(e) => setSearch(e.target.value, props.iframe)}
-        placeholder={'Rentrez un fruit ou un légume'}
+        placeholder={"Cherchez le nom d'un commun"}
       />
     </Wrapper>
-  )
+  );
 }

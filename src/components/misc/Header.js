@@ -113,7 +113,7 @@ export default function Header(props) {
             target={props.iframe ? "_blank" : "_self"}
             rel="noopener noreferrer"
           >
-            Pourquoi choisir des produits de saison ?
+            Qu'est-ce que c'est ?
           </ScrollToInformations>
         </>
       ) : (
