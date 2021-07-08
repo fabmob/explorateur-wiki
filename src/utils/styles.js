@@ -7,9 +7,9 @@ export const themes = {
     colors: {
       main: "#ff4c82",
       second: "#FFF5CB",
-      ter: "#ff4c82",
-      background: "#FFE57D",
-      text: "#2BAEAD",
+      ter: "#9dba31",
+      background: "#8cd3f6",
+      text: "#185877",
     },
     fonts: {
       body: '"Work Sans", sans-serif',
